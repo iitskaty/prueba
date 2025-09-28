@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import sistema
 from .forms import sistemaForm
 
-def lista_visita(request):
+def lista_visitas(request):
     visitas = sistema.objects.all()
     return render(request, 'visitas/base.html', {'visitas': visitas})
 
-def detalle_visita(request, id):
+def detalle_visitas(request, id):
     visita = get_object_or_404(sistema, id=id)
     return render(request, 'visitas/detalle_visitas.html', {'visita': visita})
 
@@ -20,7 +20,7 @@ def nueva_visita(request):
         form = sistemaForm()
     return render(request, 'visitas/nueva_visitas.html', {'form': form})
 
-def editar_visita(request, id):
+def editar_visitas(request, id):
     visita = get_object_or_404(sistema, id=id)
     if request.method == 'POST':
         form = sistemaForm(request.POST, instance=visita)
@@ -31,7 +31,7 @@ def editar_visita(request, id):
         form = sistemaForm(instance=visita)
     return render(request, 'visitas/editar_visitas.html', {'form': form})
 
-def eliminar_visita(request, id):
+def eliminar_visitas(request, id):
     visita = get_object_or_404(sistema, id=id)
     if request.method == 'POST':
         visita.delete()
