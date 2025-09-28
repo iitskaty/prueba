@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        Sistema de Visitas
+      {% endblock %}
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <nav class="bg-blue-600 p-4 text-white flex justify-between">
+      <a href="{% url 'lista_visitas' %}" class="font-bold hover:underline">
+        Sistema de Visitas
+      </a>
+      <div class="space-x-4">
+        <a href="{% url 'nueva_visita' %}" class="hover:underline">Nueva visita</a>
+      </div>
+    </nav>
+
+    <div class="container mx-auto p-4">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
